@@ -13,7 +13,6 @@ public class NoteService {
 
     private NoteMapper noteMapper;
 
-    /*constructor*/
     public NoteService(NoteMapper noteMapper){
         this.noteMapper = noteMapper;
     }
@@ -21,13 +20,11 @@ public class NoteService {
     public void addNote(NoteForm noteForm) {
         Note newNote = new Note();
         newNote.setNoteTitle(noteForm.getNoteTitle());
-        /*maybe some logic to prevent notes with the same name*/
+        newNote.setNoteDescription(noteForm.getNoteDescription());
         noteMapper.insertNote(newNote);
-//        System.out.println("New note added");
     }
 
     public List<Note> getPageNotes() {
-//        System.out.println("note list reached!");
         return noteMapper.getAllNotes();
 
     }
@@ -36,22 +33,4 @@ public class NoteService {
     public void postConstruct(){
         System.out.println("Creating NoteService bean");
     }
-
-    /*
-    *//*Use this method to delete a note*//*
-    public void deleteNote(NoteForm noteForm) {
-        noteMapper.delete(note);
-        *//*build something that checks if the object exists, and put this note controller*//*
-    }
-
-    *//*Use this method to check whether a username is available or has already been taken*//*
-    public boolean isNoteTitleAvailable(String notetitle) {
-        return noteMapper.getNoteTitle(notetitle) == null;
-    }
-
-    *//*Use this method to create a new note*//*
-    public int createNote(Note note) {
-        return noteMapper.insert(new Note(null, note.getNoteTitle(), note.getNoteDescription(), note.getUserId()));
-    }
-*/
 }

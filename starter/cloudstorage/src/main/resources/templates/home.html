@@ -82,7 +82,7 @@
                                             <a class="btn btn-danger">Delete</a>
                                         </td>
                                         <!- this is an example of how th:each works-!>
-                                        <th th:each= "msg : ${greetings}" th:text="${msg}" scope="row">Example Note Title</th>
+                                        <th scope="row">Example Note Title</th>
                                         <td>Example Note Description </td>
                                     </tr>
                                 </tbody>
@@ -102,7 +102,7 @@
                                     <!-This is where the notes object starts, look for the form object-!>
                                     <div class="modal-body">
                                         <!-The # in the action means to stay on the request we are currently on-!>
-                                        <form th:object= {noteForm} action="#" th:action="@{/home}" method="POST">
+                                        <form th:object= ${noteForm} action="#" th:action="@{/home}" method="POST">
                                             <input type="hidden" name="noteId" id="note-id">
                                             <div class="form-group">
                                                 <label for="note-title" class="col-form-label">Title</label>

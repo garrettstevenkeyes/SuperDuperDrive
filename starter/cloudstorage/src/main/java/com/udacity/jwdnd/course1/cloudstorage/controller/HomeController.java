@@ -4,7 +4,7 @@ import com.udacity.jwdnd.course1.cloudstorage.model.NoteForm;
 import com.udacity.jwdnd.course1.cloudstorage.services.NoteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
@@ -37,10 +37,4 @@ public class HomeController {
         model.addAttribute("pageNotes", this.noteService.getPageNotes());
         return "home";
     }
-
-    // come back to this
-   /* @ModelAttribute()*/
-
-
-
 }
