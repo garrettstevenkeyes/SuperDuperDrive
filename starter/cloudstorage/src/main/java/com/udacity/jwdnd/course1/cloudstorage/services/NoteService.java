@@ -26,11 +26,6 @@ public class NoteService {
 
     public List<Note> getPageNotes() {
         return noteMapper.getAllNotes();
-
     }
 
-    @PostConstruct
-    public void postConstruct(){
-        System.out.println("Creating NoteService bean");
-    }
 }

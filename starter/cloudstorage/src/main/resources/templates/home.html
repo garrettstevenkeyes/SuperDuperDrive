@@ -74,16 +74,16 @@
                                         <th style="width: 60%" scope="col">Description</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody th:each="note : ${noteForm.getPageNotes()}">
                                     <!-for each of the elements here i need to generate an item -!>
                                     <tr>
                                         <td>
-                                            <button type="button" class="btn btn-success">Edit</button>
-                                            <a class="btn btn-danger">Delete</a>
+                                            <button type="button" class="btn btn-success" id="editNote">Edit</button>
+                                            <a class="btn btn-danger" id="deleteNote">Delete</a>
                                         </td>
                                         <!- this is an example of how th:each works-!>
-                                        <th scope="row">Example Note Title</th>
-                                        <td>Example Note Description </td>
+                                        <th scope="row" th:text="${note.getNoteTitle()}">Example Note Title</th>
+                                        <td th:text="${note.getNoteDescription()}">Example Note Description </td>
                                     </tr>
                                 </tbody>
                             </table>

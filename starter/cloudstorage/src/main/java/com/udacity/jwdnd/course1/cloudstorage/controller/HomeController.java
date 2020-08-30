@@ -21,7 +21,7 @@ public class HomeController {
         this.noteService = noteService;
     }
 
-    // when the notes section is clicked on it should load all of the notes that are saved
+    // take us back to the home page when notes are submitted
     @GetMapping
     public String getNotePage(NoteForm noteForm, Model model) {
         model.addAttribute("pageNotes", this.noteService.getPageNotes());
@@ -33,6 +33,7 @@ public class HomeController {
     public String postNewNote(Authentication authentication, NoteForm noteForm, Model model) {
         noteForm.setNoteTitle("");
         noteForm.setNoteDescription("");
+        System.out.println(noteForm);
         this.noteService.addNote(noteForm);
         model.addAttribute("pageNotes", this.noteService.getPageNotes());
         return "home";
