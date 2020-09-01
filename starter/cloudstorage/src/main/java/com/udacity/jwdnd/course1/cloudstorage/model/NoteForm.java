@@ -1,7 +1,5 @@
 package com.udacity.jwdnd.course1.cloudstorage.model;
 
-import java.util.List;
-
 public class NoteForm {
     private Integer noteId;
     private String noteTitle;
@@ -20,9 +18,5 @@ public class NoteForm {
     }
     public void setNoteDescription(String noteDescription) {
         this.noteDescription = noteDescription;
-    }
-
-    public List<Note> getPageNotes(){
-        return (List<Note>) pageNotes;
     }
 }
