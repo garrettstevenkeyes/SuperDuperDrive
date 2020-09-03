@@ -33,7 +33,7 @@ public class HomeController {
         return "home";
     }
 
-
+    @GetMapping
     public String getFilePage(FileForm fileForm, Model model) {
         model.addAttribute("pageFiles", this.fileService.getPageFiles());
         return "home";
@@ -44,7 +44,7 @@ public class HomeController {
     public String postNewNote(Authentication authentication, NoteForm noteForm, Model model) {
         this.noteService.addNote(noteForm);
         model.addAttribute("pageNotes", this.noteService.getPageNotes());
-        return "home/note";
+        return "home";
     }
 
     // i need to add in html mapped tags
@@ -53,6 +53,6 @@ public class HomeController {
     public String postNewFile(Authentication authentication, FileForm fileForm, Model model){
         this.fileService.addFile(fileForm);
         model.addAttribute("pageFiles", this.fileService.getPageFiles());
-        return "home/file";
+        return "home";
     }
 }
