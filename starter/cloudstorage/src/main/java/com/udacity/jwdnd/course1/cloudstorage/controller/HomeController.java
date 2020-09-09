@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping("/home")
 public class HomeController {
 
@@ -26,7 +27,6 @@ public class HomeController {
     }
 
     // take us back to the home page when notes are submitted
-
     @GetMapping
     public String getNotePage(NoteForm noteForm, Model model) {
         model.addAttribute("pageNotes", this.noteService.getPageNotes());
