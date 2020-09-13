@@ -15,38 +15,38 @@ public class Credential {
         this.credentialId = credentialId;
     }
 
-    public String getCredentialUrl() {
+    public String getUrl() {
         return url;
     }
-    public void setCredentialUrl(String url) {
+    public void setUrl(String url) {
         this.url = url;
     }
 
-    public String getCredentialUsername() {
+    public String getUsername() {
         return username;
     }
-    public void setCredentialUsername(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
-    public String getCredentialKey(){
+    public String getKey(){
         return key;
     }
     public void setKey(String key) {
         this.key = key;
     }
 
-    public String getCredentialPassword(){
+    public String getPassword(){
         return password;
     }
-    public void setCredentialPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public Integer getCredentialUserId(){
+    public Integer getUserId(){
         return userId;
     }
-    public void setCredentialUserId(Integer userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 }

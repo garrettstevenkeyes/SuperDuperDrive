@@ -18,9 +18,9 @@ public class CredentialService {
 
     public void addCredential(CredentialForm credentialForm) {
         Credential newCredential = new Credential();
-        newCredential.setCredentialUrl(credentialForm.getUrl());
-        newCredential.setCredentialUsername(credentialForm.getUsername());
-        newCredential.setCredentialPassword(credentialForm.getPassword());
+        newCredential.setUrl(credentialForm.getUrl());
+        newCredential.setUsername(credentialForm.getUsername());
+        newCredential.setPassword(credentialForm.getPassword());
         credentialMapper.insertCredential(newCredential);
     }
 
