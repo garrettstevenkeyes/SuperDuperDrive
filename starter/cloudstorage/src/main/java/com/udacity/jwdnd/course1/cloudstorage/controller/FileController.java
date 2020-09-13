@@ -20,7 +20,7 @@ public class FileController {
         return "home";
     }
 
-    @PostMapping
+    @PostMapping("/files")
     public String postNewFile(FileForm fileForm, Model model){
         this.fileService.addFile(fileForm);
         model.addAttribute("pageFiles", this.fileService.getPageFiles());
