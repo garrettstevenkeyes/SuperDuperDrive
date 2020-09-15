@@ -35,5 +35,4 @@ public class FileController {
         this.fileService.addFile(new File(null, fileUpload.getOriginalFilename(), fileUpload.getContentType(), String.valueOf(fileUpload.getSize()), userId, fileUpload.getBytes()));
         return "home";
     }
-
 }
