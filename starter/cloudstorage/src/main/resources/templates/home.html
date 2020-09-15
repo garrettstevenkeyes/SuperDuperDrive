@@ -25,7 +25,7 @@
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-files" role="tabpanel" aria-labelledby="nav-files-tab">
-                        <form th:object=${fileForm} action="#" th:action="@{'/files'}" enctype="multipart/form-data" method="POST">
+                        <form action="#" th:action="@{'/files'}" enctype="multipart/form-data" method="POST">
 
                             <div class="container">
                                 <div class="row" style="margin: 1em;">
@@ -33,7 +33,7 @@
                                         <label for="fileUpload">Upload a New File:</label>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input th:field="*{fileName}" type="file" class="form-control-file" id="fileUpload" name="fileUpload">
+                                        <input type="file" class="form-control-file" id="fileUpload" name="fileUpload">
                                         <!-  -!>
                                     </div>
                                     <!-for each of the elements here i need to generate an item -!>

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import com.udacity.jwdnd.course1.cloudstorage.services.UserService;
 
+import java.io.IOException;
+
 @Controller
 public class FileController {
     private FileService fileService;
@@ -32,7 +34,7 @@ public class FileController {
     @PostMapping("/files")
     public String postNewFile(@RequestParam("fileUpload") MultipartFile fileUpload, Model model, Authentication authentication){
         int userId = userService.getUser(authentication.name()).getUserId();
-        this.fileService.addFile(new File(null, fileUpload.getOriginalFilename(), fileUpload.getContentType(), String.valueOf(fileUpload.getSize()), userId, fileUpload.getBytes()));
+        fileService.addFile(new File(null, fileUpload.getOriginalFilename(), fileUpload.getContentType(), String.valueOf(fileUpload.getSize()), userId, fileUpload.getBytes()));
         return "home";
     }
 }

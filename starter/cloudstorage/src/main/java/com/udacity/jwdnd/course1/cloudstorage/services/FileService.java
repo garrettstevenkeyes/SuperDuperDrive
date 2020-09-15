@@ -15,10 +15,8 @@ public class FileService {
         this.fileMapper = fileMapper;
     }
 
-    public void addFile(FileForm fileform){
-        File newFile = new File();
-        newFile.setFileName(fileform.getFileName());
-        fileMapper.insertFile(newFile);
+    public int addFile(File file){
+        return fileMapper.insertFile(new File(null, file.getFileName(), file.getContentType(), file.getFileSize(), file.getUserId(), file.getFileData()));
     }
 
     public List<File> getPageFiles() {
