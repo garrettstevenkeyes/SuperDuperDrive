@@ -9,8 +9,8 @@ public class CredentialForm {
         return credentialUrl;
     }
 
-    public void setUrl(String url) {
-        this.credentialUrl = url;
+    public void setUrl(String credentialUrl) {
+        this.credentialUrl = credentialUrl;
     }
 
     public String getUsername() {
