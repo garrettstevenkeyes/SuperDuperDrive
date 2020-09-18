@@ -1,4 +1,8 @@
 package com.udacity.jwdnd.course1.cloudstorage.controller;
+import com.udacity.jwdnd.course1.cloudstorage.model.CredentialForm;
+import com.udacity.jwdnd.course1.cloudstorage.model.Note;
+import com.udacity.jwdnd.course1.cloudstorage.services.CredentialService;
+import com.udacity.jwdnd.course1.cloudstorage.services.FileService;
 import com.udacity.jwdnd.course1.cloudstorage.services.NoteService;
 import com.udacity.jwdnd.course1.cloudstorage.model.NoteForm;
 import org.springframework.stereotype.Controller;
@@ -9,9 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class NoteController {
     private NoteService noteService;
+    private FileService fileService;
+    private CredentialService credentialService;
 
-    public NoteController(NoteService noteService){
+    public NoteController(NoteService noteService, FileService fileService, CredentialService credentialService){
         this.noteService = noteService;
+        this.fileService = fileService;
+        this.credentialService = credentialService;
     }
 
     @GetMapping("/notes")
@@ -25,7 +33,10 @@ public class NoteController {
     public String postNewNote(NoteForm noteForm, Model model) {
         this.noteService.addNote(noteForm);
         model.addAttribute("pageNotes", this.noteService.getPageNotes());
+        model.addAttribute("pageCredentials", this.credentialService.getPageCredentials());
+        model.addAttribute("pageFiles", this.fileService.getPageFiles());
+        model.addAttribute("noteForm", new NoteForm());
+        model.addAttribute("credentialForm", new CredentialForm());
         return "home";
     }
-
 }
