@@ -26,11 +26,8 @@ public class NoteService {
         return noteMapper.getAllNotes();
     }
 
-//    public void deleteNote(NoteForm noteForm) {
-//        //for note in note form
-//        //if note
-//
-//        noteMapper.deleteNote(note);
-//    }
+    public int deleteNote(String username) {
+        return noteMapper.deleteNote(username);
+    }
 
 }

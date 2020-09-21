@@ -32,7 +32,7 @@ public class UserService {
         return userMapper.insert(new User(null, user.getUsername(), encodedSalt, hashedPassword, user.getFirstName(), user.getLastName()));
     }
 
-    /*This method can be used to retreive a user profile from the database*/
+    /*This method can be used to retrieve a user profile from the database*/
     public User getUser(String username) {
         /*This accesses the userMapper to get it from the database*/
         return userMapper.getUser(username);
