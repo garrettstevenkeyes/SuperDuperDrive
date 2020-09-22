@@ -10,7 +10,6 @@ public class Note {
     public Integer getNoteId(){
         return noteId;
     }
-
     public void setNoteId(Integer noteId) {
         this.noteId = noteId;
     }
@@ -18,7 +17,6 @@ public class Note {
     public String getNoteTitle() {
         return noteTitle;
     }
-
     public void setNoteTitle(String noteTitle) {
         this.noteTitle = noteTitle;
     }
@@ -26,7 +24,6 @@ public class Note {
     public String getNoteDescription() {
         return noteDescription;
     }
-
     public void setNoteDescription(String noteDescription) {
         this.noteDescription = noteDescription;
     }
@@ -34,7 +31,6 @@ public class Note {
     public Integer getUserId(){
         return userId;
     }
-
     public void setUserId(Integer userId) {
         this.userId = userId;
     }

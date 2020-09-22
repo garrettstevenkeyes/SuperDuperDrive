@@ -19,4 +19,18 @@ public class NoteForm {
     public void setNoteDescription(String noteDescription) {
         this.noteDescription = noteDescription;
     }
+
+    public Integer getNoteId() {
+        return noteId;
+    }
+    public void setNoteId(Integer noteId) {
+        this.noteId = noteId;
+    }
+
+    public Note getPageNotes() {
+        return pageNotes;
+    }
+    public void setPageNotes(Note pageNotes) {
+        this.pageNotes = pageNotes;
+    }
 }
