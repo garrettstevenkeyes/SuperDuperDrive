@@ -13,6 +13,6 @@ public interface FileMapper {
     @Options(useGeneratedKeys = true, keyProperty = "fileId")
     int insertFile(File file);
 
-    @Delete("DELETE FROM FILES WHERE filename = #{filename}")
-    void deleteFile(File file);
+    @Delete("DELETE FROM FILES WHERE fileId = #{fileId}")
+    void deleteFile(Integer fileId);
 }

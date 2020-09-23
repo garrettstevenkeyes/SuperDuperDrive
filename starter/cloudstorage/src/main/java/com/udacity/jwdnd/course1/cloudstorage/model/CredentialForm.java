@@ -8,7 +8,6 @@ public class CredentialForm {
     public String getUrl() {
         return credentialUrl;
     }
-
     public void setUrl(String credentialUrl) {
         this.credentialUrl = credentialUrl;
     }
@@ -16,7 +15,6 @@ public class CredentialForm {
     public String getUsername() {
         return username;
     }
-
     public void setUsername(String username) {
         this.username = username;
     }
@@ -24,7 +22,6 @@ public class CredentialForm {
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }

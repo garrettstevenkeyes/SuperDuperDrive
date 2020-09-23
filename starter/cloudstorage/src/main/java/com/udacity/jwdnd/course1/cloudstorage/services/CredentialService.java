@@ -28,4 +28,8 @@ public class CredentialService {
     public List<Credential> getPageCredentials() {
         return credentialMapper.getAllCredentials();
     }
+
+    public void deleteCredential(Integer credentialId) {
+        credentialMapper.deleteCredential(credentialId);
+    }
 }

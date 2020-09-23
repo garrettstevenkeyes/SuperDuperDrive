@@ -22,4 +22,8 @@ public class FileService {
     public List<File> getPageFiles() {
         return fileMapper.getAllFiles();
     }
+
+    public void deleteFile(Integer fileId) {
+        fileMapper.deleteFile(fileId);
+    }
 }
