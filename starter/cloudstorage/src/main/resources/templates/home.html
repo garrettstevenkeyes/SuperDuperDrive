@@ -82,7 +82,7 @@
                                     <tr>
                                         <td>
                                             <button type="button" class="btn btn-success" id="editNote">Edit</button>
-                                            <a th:action="@{/notes/{noteId}(noteId=${note.getNoteId()})}" th:method="delete" class="btn btn-danger" id="deleteNote">Delete</a>
+                                            <a th:href="@{'/notes/' + ${note.getNoteId()}}" class="btn btn-danger" id="deleteNote">Delete</a>
                                         </td>
                                         <!- this is an example of how th:each works-!>
                                         <th scope="row" th:text="${note.getNoteTitle()}">Example Note Title</th>
