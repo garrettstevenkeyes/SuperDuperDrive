@@ -16,10 +16,21 @@ public class NoteService {
     }
 
     public void addNote(NoteForm noteForm) {
-        Note newNote = new Note();
-        newNote.setNoteTitle(noteForm.getNoteTitle());
-        newNote.setNoteDescription(noteForm.getNoteDescription());
-        noteMapper.insertNote(newNote);
+        Note notes = noteMapper.findNoteById(noteForm.getNoteId());
+        if (notes != null) {
+            notes.setNoteTitle(noteForm.getNoteTitle());
+            notes.setNoteDescription(noteForm.getNoteDescription());
+            noteMapper.updateNoteById(notes);
+        } else {
+            notes = new Note();
+            notes.setNoteTitle(noteForm.getNoteTitle());
+            notes.setNoteDescription(noteForm.getNoteDescription());
+            noteMapper.insertNote(notes);
+        }
+    }
+
+    public Note getNote(Integer noteId) {
+        return noteMapper.findNoteById(noteId);
     }
 
     public List<Note> getPageNotes() {
