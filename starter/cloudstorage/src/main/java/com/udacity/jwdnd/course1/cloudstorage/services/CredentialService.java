@@ -18,11 +18,23 @@ public class CredentialService {
     }
 
     public void addCredential(CredentialForm credentialForm) {
-        Credential newCredential = new Credential();
-        newCredential.setUrl(credentialForm.getUrl());
-        newCredential.setUsername(credentialForm.getUsername());
-        newCredential.setPassword(credentialForm.getPassword());
-        credentialMapper.insertCredential(newCredential);
+        Credential credentials = credentialMapper.findCredentialById(credentialForm.getCredentialId());
+        if(credentials != null) {
+            credentials.setUrl(credentialForm.getCredentialUrl());
+            credentials.setUsername(credentialForm.getUsername());
+            credentials.setPassword(credentialForm.getPassword());
+            credentialMapper.updateCredentialById(credentials);
+        } else {
+            credentials = new Credential();
+            credentials.setUrl(credentialForm.getUrl());
+            credentials.setUsername(credentialForm.getUsername());
+            credentials.setPassword(credentialForm.getPassword());
+            credentialMapper.insertCredential(credentials);
+        }
+    }
+
+    public Credential getCredential(Integer credentialId) {
+        return credentialMapper.findCredentialById(credentialId);
     }
 
     public List<Credential> getPageCredentials() {

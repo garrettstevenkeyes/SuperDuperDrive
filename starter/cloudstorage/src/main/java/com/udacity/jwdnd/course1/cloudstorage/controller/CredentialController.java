@@ -1,12 +1,10 @@
 package com.udacity.jwdnd.course1.cloudstorage.controller;
+import com.udacity.jwdnd.course1.cloudstorage.model.Credential;
 import com.udacity.jwdnd.course1.cloudstorage.model.CredentialForm;
 import com.udacity.jwdnd.course1.cloudstorage.services.CredentialService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class CredentialController {
@@ -32,5 +30,12 @@ public class CredentialController {
     public String deleteCredential(@PathVariable(value = "credentialId") Integer credentialId, Model model) {
         credentialService.deleteCredential(credentialId);
         return "redirect:/home";
+    }
+
+    @GetMapping(value = "/getCredential/{credentialId}")
+        @ResponseBody
+        public Credential getCredential(@PathVariable(name="credentialId") String credentialID) {
+            Integer credentialId = Integer.parseInt(credentialID);
+            return credentialService.getCredential(credentialId);
     }
 }

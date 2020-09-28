@@ -146,7 +146,7 @@
                                 <tbody th:each="credential : ${pageCredentials}">
                                 <tr>
                                     <td>
-                                        <button type="button" class="btn btn-success">Edit</button>
+                                        <a class="btn btn-success" id="editCredential" th:onclick="'javascript:showCredentialModal(\'' + ${credential.getCredentialId()} + '\');'">Edit</a>
                                         <a th:href="@{'/credentials/' + ${credential.getCredentialId()}}"  class="btn btn-danger">Delete</a>
                                     </td>
                                     <th scope="row" th:text="${credential.getUrl()}">Example Credential URL</th>
@@ -221,11 +221,21 @@
             }
 
             // For opening the credentials modal
-            function showCredentialModal(credentialId, url, username, password) {
-                $('#credential-id').val(credentialId ? credentialId : '');
-                $('#credential-url').val(url ? url : '');
-                $('#credential-username').val(username ? username : '');
-                $('#credential-password').val(password ? password : '');
+            function showCredentialModal(id) {
+                if((id!==undefined)) {
+                    $(document).ready(function() {
+                        $.ajax({
+                            url:"http://localhost:8080/getCredential/"+id
+                        }).then(function(data) {
+                            console.log(data)
+                            $('#credential-id').val(data.credentialId);
+                            $('#credential-url').val(data.credentialUrl);
+                            $('#credential-username').val(data.username);
+                            $('#credential-password').val(data.password);
+                            $('#credentialModal').modal('show');
+                        });
+                    });
+                }
                 $('#credentialModal').modal('show');
             }
         </script>
